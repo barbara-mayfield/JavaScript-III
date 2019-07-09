@@ -74,7 +74,51 @@ Humanoid.prototype.greet = function() {
 }
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
+// stretch 
 
+function Hero(good) {
+  Humanoid.call(this, good);
+}
+
+  const priestess = new Hero({
+      createdAt: new Date(),
+      dimensions: {
+        length: 3,
+        width: 1,
+        height: 2,
+      },
+      healthPoints: 10,
+      name: 'Tyrande',
+      team: 'The Alliance',
+      weapons: [
+        'Scythe of Elune',
+      ],
+      language: 'Darnassian',
+  });
+
+console.log(priestess);
+
+function Villain(evil) {
+  Humanoid.call(this, evil);
+}
+
+  const darkRanger = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 3,
+      width: 1,
+      height: 2,
+    },
+    healthPoints: 10,
+    name: 'Sylvanas',
+    team: 'The Horde',
+    weapons: [
+      'Sunstrider Longbow',
+    ],
+    language: 'Undead',
+  });
+
+  console.log(darkRanger);
 
   const mage = new Humanoid({
     createdAt: new Date(),
