@@ -68,7 +68,7 @@ function Humanoid(human) {
   this.language = human.language;
 }
 
-Humanoid.prototype.speak = function() {
+Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
 }
 
