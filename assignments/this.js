@@ -13,16 +13,50 @@
 
 // Principle 1
 
-// code example for Window Binding
+//code example for Global Binding
+console.log(this);
 
 // Principle 2
 
 // code example for Implicit Binding
+const person = {
+    name: 'Barbara',
+    age: 28,
+    favFood: 'kolachies',
+    eat: function() {
+        return `${this.name} likes to eat ${this.favFood}`;
+    }
+}
+
+console.log(person.eat());
 
 // Principle 3
 
 // code example for New Binding
+function Person(activity, name) {
+    this.activity = activity;
+    this.name = name;
+    this.does = function() {
+        return `${this.name} ${this.activity}`;
+    }
+}
+
+const barbara = new Person('plays video games', 'Barbara');
+
+console.log(barbara.does());
 
 // Principle 4
 
 // code example for Explicit Binding
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+}
+
+function Game(name, price) {
+    Product.call(this, name, price);
+    this.category = 'game';
+    console.log(`${this.name} for ${this.price}`);
+    }
+
+console.log(new Game('World of Warcraft', '$60').name);
