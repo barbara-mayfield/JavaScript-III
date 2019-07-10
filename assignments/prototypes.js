@@ -142,8 +142,8 @@ Humanoid.prototype.greet = function() {
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-  function Hero(good) {
-    Humanoid.call(this, good);
+  function Hero(stats) {
+    Humanoid.call(this, stats);
   }
 
     const priestess = new Hero({
@@ -154,21 +154,31 @@ Humanoid.prototype.greet = function() {
           height: 2,
         },
         healthPoints: 10,
-        name: 'Tyrande',
+        name: 'Tyrande Whisperwind',
         team: 'The Alliance',
         weapons: [
           'Scythe of Elune',
+          'Holy Fire',
+          'Shadow Word: Pain'
         ],
         language: 'Darnassian',
     });
 
-  console.log(priestess);
+    Hero.prototype.takeDmg = function() {
+      if (bansheeQueen.weapons[2]) {
+        return `${this.name} now has ${this.healthPoints - 5} health points.`
+      }
+    }
 
-  function Villain(evil) {
-    Humanoid.call(this, evil);
+    Hero.prototype.destroy = function() {
+      return `${this.name} has been defeated.`
+    }
+
+  function Villain(stats) {
+    Humanoid.call(this, stats);
   }
 
-    const darkRanger = new Villain({
+    const bansheeQueen = new Villain({
       createdAt: new Date(),
       dimensions: {
         length: 3,
@@ -176,12 +186,35 @@ Humanoid.prototype.greet = function() {
         height: 2,
       },
       healthPoints: 10,
-      name: 'Sylvanas',
+      name: 'Sylvanas Windrunner',
       team: 'The Horde',
       weapons: [
         'Sunstrider Longbow',
+        'Raise Undead',
+        'Banshee Wail'
       ],
       language: 'Undead',
     });
 
-    console.log(darkRanger);
+    Villain.prototype.takeDmg = function() {
+        if (priestess.weapons[0]) {
+        return `${this.name} now has ${this.healthPoints - 3} health points.`
+      }
+    }
+
+    Villain.prototype.destroy = function() {
+      return `${this.name} has been defeated.`
+    }
+
+  console.log(priestess);
+  console.log(bansheeQueen); 
+  console.log(`${bansheeQueen.team} is at war with ${priestess.team}`);
+  console.log(`${bansheeQueen.name} challenges ${priestess.name} on the battlefield.`);
+  console.log(`${priestess.name} attacks with ${priestess.weapons[0]}.`);
+  console.log(bansheeQueen.takeDmg());
+  console.log(`${bansheeQueen.name} unleashes ${bansheeQueen.weapons[2]}`);
+  console.log(`${priestess.name} takes critical damage.`);
+  console.log(priestess.takeDmg());
+  console.log(`${priestess.name} calls forth ${priestess.weapons[1]}`);
+  console.log(`It's super effective!`);
+  console.log(bansheeQueen.destroy());
