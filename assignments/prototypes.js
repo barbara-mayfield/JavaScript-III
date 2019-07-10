@@ -208,13 +208,13 @@ Humanoid.prototype.greet = function() {
 
   console.log(priestess);
   console.log(bansheeQueen); 
-  console.log(`${bansheeQueen.team} is at war with ${priestess.team}`);
+  console.log(`${bansheeQueen.team} is at war with ${priestess.team}.`);
   console.log(`${bansheeQueen.name} challenges ${priestess.name} on the battlefield.`);
   console.log(`${priestess.name} attacks with ${priestess.weapons[0]}.`);
   console.log(bansheeQueen.takeDmg());
-  console.log(`${bansheeQueen.name} unleashes ${bansheeQueen.weapons[2]}`);
+  console.log(`${bansheeQueen.name} unleashes ${bansheeQueen.weapons[2]}.`);
   console.log(`${priestess.name} takes critical damage.`);
   console.log(priestess.takeDmg());
-  console.log(`${priestess.name} calls forth ${priestess.weapons[1]}`);
+  console.log(`${priestess.name} calls forth ${priestess.weapons[1]}.`);
   console.log(`It's super effective!`);
   console.log(bansheeQueen.destroy());
